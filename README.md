@@ -18,7 +18,8 @@ Meet us on IRC: [#lesscode](irc://chat.freenode.net/#lesscode) on
 Related projects
 ----------------
 
-There's an [alternative implementation for Ruby][finist].
+* [Finist implemented in Ruby][finist.ruby]
+* [Finist implemented in Rust][finist.rust]
 
 Usage
 -----
@@ -109,4 +110,5 @@ to install the dependencies. Follow the instructions in
 [pac]: https://github.com/soveran/pac
 [resp]: https://github.com/soveran/resp
 [redis]: http://redis.io
-[finist]: https://github.com/soveran/finist
+[finist.ruby]: https://github.com/soveran/finist
+[finist.rust]: https://github.com/badboy/finist
