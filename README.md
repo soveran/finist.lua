@@ -68,8 +68,9 @@ machine:trigger("approve")
 # => true, "approved"
 ```
 
-The `trigger` method returns two values: the first represents whether
-a transition occurred, and the second represents the current state.
+The `trigger` method returns two values: the first represents the
+current state, and the second represents whether a transition
+occurred.
 
 Here's what happens if an event doesn't cause a transition:
 
@@ -81,7 +82,7 @@ machine:trigger("reset")
 Here's a convenient way to use this flag:
 
 ```lua
-local changed, state = machine:trigger("reset")
+local state, changed = machine:trigger("reset")
 
 if changed then
   print("State changed to " .. state)

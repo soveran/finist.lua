@@ -3,7 +3,7 @@ require("pl.strict")
 local finist = require("finist")
 local resp = require("lib.resp-6e714a9")
 
-local c = resp.new("localhost", 6379)
+local c = resp.new("127.0.0.1", 6379)
 
 local prepare = function(c)
 	c:call("SELECT", "5")
@@ -51,13 +51,13 @@ local fsm2 = finist.new(c, "myfsm", "pending")
 assert(fsm2:state() == "cancelled")
 
 -- A successful event returns true
-local changed, state = fsm:trigger("reset")
+local state, changed = fsm:trigger("reset")
 
 assert(changed == true)
 assert(state == "pending")
 
 -- An unsuccessful event returns false
-local changed, state = fsm:trigger("reset")
+local state, changed = fsm:trigger("reset")
 
 assert(changed == false)
 assert(state == "pending")
@@ -66,7 +66,7 @@ assert(state == "pending")
 fsm:rm("approve")
 
 -- Non existent events return false
-local changed, state = fsm:trigger("approve")
+local state, changed = fsm:trigger("approve")
 
 assert(changed == false)
 assert(state == "pending")

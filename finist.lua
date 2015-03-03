@@ -62,11 +62,7 @@ end
 local trigger = function(self, ev)
 	local result = send(self, ev)
 
-	if result[2] then
-		return true, result[1]
-	else
-		return false, result[1]
-	end
+	return result[1], result[2] ~= nil
 end
 
 -- Methods available for the fsm
